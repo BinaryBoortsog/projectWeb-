@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import FeaturedProducts from './components/FeaturedProducts';
 import Certificate from './components/Certificate';
 import GallerySlider from './components/testiMonials';
+import Footer from './components/Footer';
 function App() {
   return (
     <div>
@@ -12,6 +13,7 @@ function App() {
       <FeaturedProducts/>
       <GallerySlider/>
       <Certificate/>
+      <Footer/>
     </div>
   );
 }

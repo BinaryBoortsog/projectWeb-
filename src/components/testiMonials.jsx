@@ -48,7 +48,7 @@ const GallerySlider = () => {
 
   return (
     <div className="w-full bg-gray-300 py-0 px-0 overflow-hidden">
-      <div className="max-w-full mx-auto flex flex-col lg:flex-row items-center gap-4 rounded-tl-xl rounded-tr-xl py-12 px-10"
+      <div className="max-w-full mx-auto flex flex-col lg:flex-row items-center gap-4 rounded-tl-2xl rounded-tr-2xl py-12 px-10"
       style={{ backgroundColor: "#000" }}>
         <div className="w-full lg:w-5/12">
           <h1
