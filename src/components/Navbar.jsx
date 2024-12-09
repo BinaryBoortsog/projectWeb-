@@ -1,76 +1,113 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from "framer-motion";
+import exampleImage from "../assets/image/image.png";
 
 const Navbar = () => {
     const [nav, setNav] = useState(false);
+    const navRef = useRef();
 
-    const handleNav = () => {
-        setNav(!nav);
+    const handleNav = () => setNav(!nav);
+
+    // Close mobile menu when clicking outside
+    const handleOutsideClick = (e) => {
+        if (navRef.current && !navRef.current.contains(e.target)) {
+            setNav(false);
+        }
     };
 
+    useEffect(() => {
+        if (nav) {
+            document.addEventListener("mousedown", handleOutsideClick);
+        } else {
+            document.removeEventListener("mousedown", handleOutsideClick);
+        }
+        return () => document.removeEventListener("mousedown", handleOutsideClick);
+    }, [nav]);
+
     return (
-        <div className="relative flex justify-between items-center h-24 max-w-auto mx-auto px-4 bg-sky-200">
-            <h1 className="text-3xl font-bold text-[#00df9a]">Фенстер Монгол</h1>
-            <ul className="hidden md:flex gap-x-10 text-xl relative flex-1 justify-items-center left-60">
-                <FlyoutLink href="/" className="group relative h-fit w-fit">
-                    Нийтлэл,зөвөлгөө
-                </FlyoutLink>
-                <FlyoutLink
-                    href="/about"
-                    FlyoutContent={AboutFlyout}
-                    className="group relative h-fit w-fit"
-                >
-                    Бидний тухай
-                </FlyoutLink>
-                <FlyoutLink
-                    href="/products"
-                    FlyoutContent={productContent}
-                    className="group relative h-fit w-fit"
-                >
-                    Бүтээгдэхүүн
-                </FlyoutLink>
-                <FlyoutLink href="/services" FlyoutContent={serviceContent} className="group relative h-fit w-fit">
-                    Үйлчилгээ
-                </FlyoutLink>
-            </ul>
-            <button
-                onClick={handleNav}
-                className="block md:hidden"
-                aria-label={nav ? "Close navigation menu" : "Open navigation menu"}
-            >
-                {nav ? (
-                    <IoMdClose size={20} className="text-[#00df9a]" />
-                ) : (
-                    <CiMenuBurger size={20} className="text-[#00df9a]" />
-                )}
-            </button>
+        <div className="flex-col">
+            {/* Top Navbar */}
             <div
-                className={
-                    nav
-                        ? "fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500"
-                        : "fixed left-[-100%]"
-                }
+                className="top-0 fixed w-full flex h-12  justify-between items-center shadow-md"
+                style={{
+                    backgroundImage: "linear-gradient(to right, white 80%, black 20%)",
+                }}
             >
-                <h1 className="text-3xl font-bold text-[#00df9a] m-4">Фенстер Монгол</h1>
+                <h1 className="text-black text-lg pl-4">Өөрийн дүрээ сонго--</h1>
+                <button className="hidden md:block pr-4">Хувь хүн</button>
+                <button className="hidden md:block pr-4">Инженер</button>
+                <button className="hidden md:block pr-4">Архитектор</button>
+                <button className="hidden md:block pr-4 text-white relative right-10">Төсөл хэрэгжүүлэх</button>
+                <button
+                    onClick={handleNav}
+                    className="block md:hidden pr-4"
+                    aria-label={nav ? "Цэс хаах" : "Цэс нээх"}
+                >
+                    {nav ? (
+                        <IoMdClose size={24} className="text-[#fff] right-10" />
+                    ) : (
+                        <CiMenuBurger size={24} className="text-[#fff] right-10" />
+                    )}
+                </button>
+            </div>
+
+            {/* Middle Section */}
+            <div className="fixed top-12 w-full flex justify-between items-center h-36 max-w-auto bg-custom-gradient">
+                <img
+                    src={exampleImage}
+                    alt="Жишээ зураг"
+                    className="relative left-14 w-36 h-36 bottom-5"
+                />
+                <ul className="hidden md:flex bottom-5 gap-x-24 text-lg relative flex-1 justify-items-center left-1/4">
+                    <FlyoutLink href="/about" FlyoutContent={AboutFlyout}>
+                        Хамтран ажиллах
+                    </FlyoutLink>
+                    <FlyoutLink href="/products" FlyoutContent={productContent}>
+                        Бүтээгдэхүүн
+                    </FlyoutLink>
+                    <FlyoutLink href="/services" FlyoutContent={serviceContent}>
+                        Үйлдвэрлэл
+                    </FlyoutLink>
+                    <FlyoutLink href="/">Хэрэгжүүлсэн төслүүд</FlyoutLink>
+                </ul>
+            </div>
+
+            {/* Mobile Menu */}
+            <div
+                ref={navRef}
+                className={`fixed left-0 top-0 w-[60%] h-full border-r bg-[#fff] transition-transform duration-500 ${
+                    nav ? "translate-x-0" : "-translate-x-full"
+                }`}
+            >
+                <img
+                    src={exampleImage}
+                    alt="Жишээ зураг"
+                    className="w-36 h-36 relative left-16"
+                />
                 <ul className="uppercase p-4">
                     <li className="p-4 border-b border-gray-600">
-                        <Link to="/" onClick={handleNav}>Нийтлэл, зөвөлгөө</Link>
+                        <Link to="/" onClick={handleNav}>
+                            Нийтлэл, зөвлөгөө
+                        </Link>
                     </li>
                     <li className="p-4 border-b border-gray-600">
-                        <Link to="/about" onClick={handleNav}>Бидний тухай</Link>
+                        <Link to="/about" onClick={handleNav}>
+                            Бидний тухай
+                        </Link>
                     </li>
                     <li className="p-4 border-b border-gray-600">
-                        <Link to="/products" onClick={handleNav}>Бүтээгдэхүүн</Link>
+                        <Link to="/products" onClick={handleNav}>
+                            Бүтээгдэхүүн
+                        </Link>
                     </li>
                     <li className="p-4 border-b border-gray-600">
-                        <Link to="/services" onClick={handleNav}>Үйлчилгээ</Link>
-                    </li>
-                    <li className="p-4 border-b border-gray-600">
-                        <Link to="/blog" onClick={handleNav}>Нийтлэл зөвлөгөө</Link>
+                        <Link to="/services" onClick={handleNav}>
+                            Үйлчилгээ
+                        </Link>
                     </li>
                 </ul>
             </div>
@@ -89,7 +126,7 @@ const FlyoutLink = ({ children, href, FlyoutContent }) => {
             onMouseLeave={() => setOpen(false)}
             className="group relative h-fit w-fit"
         >
-            <a href={href} className="relative text-[#00bf8a] text-l">
+            <a href={href} className="relative text-[#fff] text-l">
                 {children}
                 <span
                     style={{ transform: showFlyout ? 'scaleX(1)' : 'scaleX(0)' }}
@@ -116,76 +153,51 @@ const FlyoutLink = ({ children, href, FlyoutContent }) => {
     );
 };
 
-// Example of flyout contents
-const productContent = () => {
-    return (
-        <div className="w-full bg-white p-6 shadow-xl">
-            <h3 className="font-bold text-xl mb-4">Бүтээгдэхүүн</h3>
-            <div className="flex flex-col gap-6">
-                <div className="flex-none">
-                    <Link to="/pvc-windows" className="text-teal-600 font-semibold">
-                        PVC цонх
-                    </Link>
-                    <p className="text-sm text-gray-600">
-                        Veka брэндийн талаар болон эрчим хүчний хэмнэлт, дуу чимээг бууруулах, дулаан тусгаарлах гэх мэт ашиг тусын талаар дэлгэрэнгүй мэдээлэл.
-                    </p>
-                </div>
-                <div className="flex-none">
-                    <Link to="/exterior-decoration" className="text-teal-600 font-semibold">
-                        Гадна чимэглэлийн систем
-                    </Link>
-                    <p className="text-sm text-gray-600">
-                        Үзүүлэлт болон дизайны сонголт бүхий фасадны шийдлүүдийг үзүүлнэ.
-                    </p>
-                </div>
-                <div className="flex-none">
-                    <Link to="/insulation" className="text-teal-600 font-semibold">
-                        Дулаалга
-                    </Link>
-                    <p className="text-sm text-gray-600">
-                        Ашиг тус, олон төрлийн хэрэглээ зэрэг чулуун хөвөн болон бусад дулаалгын бүтээгдэхүүний талаарх мэдээлэл.
-                    </p>
-                </div>
-            </div>
+// Example Flyout Contents
+const productContent = () => (
+    <div className="w-64 bg-white p-6 shadow-xl">
+        <h3 className="font-bold text-xl mb-4">Бүтээгдэхүүн</h3>
+        <div className="flex flex-col gap-4">
+            <Link to="/pvc-windows" className="text-teal-600 font-semibold">
+                PVC цонх
+            </Link>
+            <Link to="/exterior-decoration" className="text-teal-600 font-semibold">
+                Гадна чимэглэлийн систем
+            </Link>
+            <Link to="/insulation" className="text-teal-600 font-semibold">
+                Дулаалга
+            </Link>
         </div>
-    );
-};
+    </div>
+);
 
+const serviceContent = () => (
+    <div className="w-64 bg-white p-6 shadow-xl">
+        <ul>
+            <li>
+                <Link to="/team">Баг</Link>
+            </li>
+            <li>
+                <Link to="/contact">Холбоо барих</Link>
+            </li>
+        </ul>
+    </div>
+);
 
-const serviceContent = () => {
-    return (
-        <div className="w-64 bg-white p-6 shadow-xl">
-            <ul>
-                <li>
-                    <Link to="/about">Бидний тухай</Link>
-                </li>
-                <li>
-                    <Link to="/team">Баг</Link>
-                </li>
-                <li>
-                    <Link to="/contact">Холбоо барих</Link>
-                </li>
-            </ul>
-        </div>
-    );
-};
-
-const AboutFlyout = () => {
-    return (
-        <div className="w-64 bg-white p-6 shadow-xl">
-            <ul>
-                <li>
-                    <Link to="/about">Бидний тухай</Link>
-                </li>
-                <li>
-                    <Link to="/team">Баг</Link>
-                </li>
-                <li>
-                    <Link to="/contact">Холбоо барих</Link>
-                </li>
-            </ul>
-        </div>
-    );
-};
+const AboutFlyout = () => (
+    <div className="w-64 bg-white p-6 shadow-xl">
+        <ul>
+            <li>
+                <Link to="/about">Бидний тухай</Link>
+            </li>
+            <li>
+                <Link to="/team">Баг</Link>
+            </li>
+            <li>
+                <Link to="/contact">Холбоо барих</Link>
+            </li>
+        </ul>
+    </div>
+);
 
 export default Navbar;
