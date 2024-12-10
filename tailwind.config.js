@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'custom-gradient': 'linear-gradient(to bottom, #6e6f6e 5%, rgba(48, 50, 48, 0.4) 40%, transparent 100%)',
+        'custom-gradient': 'linear-gradient(to bottom, #6A89A7 10%, rgba(106, 137, 167, 0.8) 40%, rgba(106, 137, 167, 0.5) 70%, transparent 100%)',
+
       },
     },
   },

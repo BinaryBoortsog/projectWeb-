@@ -29,19 +29,19 @@ const Navbar = () => {
     }, [nav]);
 
     return (
-        <div className="flex-col">
+        <div className="fixed flex z-50">
             {/* Top Navbar */}
             <div
-                className="top-0 fixed w-full flex h-12  justify-between items-center shadow-md"
+                className="top-0 fixed w-full flex  h-[3rem]  justify-between items-center shadow-md"
                 style={{
-                    backgroundImage: "linear-gradient(to right, white 80%, black 20%)",
+                    backgroundImage: "linear-gradient(to right, white 78%, black 22%)",
                 }}
             >
-                <h1 className="text-black text-lg pl-4">Өөрийн дүрээ сонго--</h1>
-                <button className="hidden md:block pr-4">Хувь хүн</button>
-                <button className="hidden md:block pr-4">Инженер</button>
-                <button className="hidden md:block pr-4">Архитектор</button>
-                <button className="hidden md:block pr-4 text-white relative right-10">Төсөл хэрэгжүүлэх</button>
+                <h1 className="text-black text-lg pl-4 ">Өөрийн дүрээ сонго--</h1>
+                <button className="hidden md:block  hover:bg-teal-600 h-12 w-32">Хувь хүн</button>
+                <button className="hidden md:block  hover:bg-teal-600 h-12  w-32">Инженер</button>
+                <button className="hidden md:block  hover:bg-teal-600 h-12  w-32">Архитектор</button>
+                <button className="hidden md:block  text-white relative right-14 hover:text-teal-600">Төсөл хэрэгжүүлэх</button>
                 <button
                     onClick={handleNav}
                     className="block md:hidden pr-4"
@@ -130,7 +130,7 @@ const FlyoutLink = ({ children, href, FlyoutContent }) => {
                 {children}
                 <span
                     style={{ transform: showFlyout ? 'scaleX(1)' : 'scaleX(0)' }}
-                    className="absolute -bottom-2 left-0 right-0 h-1 origin-left rounded-full bg-teal-200 transition-transform duration-300 ease-out"
+                    className="absolute -bottom-2 left-0 right-0 h-1 origin-left rounded-full bg-teal-600 transition-transform duration-300 ease-out"
                 />
             </a>
             <AnimatePresence>
