@@ -4,18 +4,21 @@ import "swiper/css";
 import "swiper/css/scrollbar";
 import { Scrollbar } from "swiper/modules";
 
+import image1 from "../assets/image/7.png";
+import image2 from "../assets/image/6.png";
+
 const FeaturedProducts = () => {
   const products = [
-    { id: 1, image: require("../assets/image/frame1.png") },
-    { id: 2, image: require("../assets/image/frame1.png") },
-    { id: 3, image: require("../assets/image/frame1.png") },
-    { id: 4, image: require("../assets/image/frame1.png") },
+    { id: 1, image: image1, image2: image2, title: "Инженерчлэл",text: "Хэмжилт, зураг төсөл, угсралт, үйлдвэрлэлийн тооцоолол" },
+    { id: 2, image: image1, image2: image2, title: "Инженерчлэл",text: "Хэмжилт, зураг төсөл, угсралт, үйлдвэрлэлийн тооцоолол" },
+    { id: 3, image: image1, image2: image2,title: "Инженерчлэл",text: "Хэмжилт, зураг төсөл, угсралт, үйлдвэрлэлийн тооцоолол" },
+    { id: 4, image: image1, image2: image2, title: "Инженерчлэл",text: "Хэмжилт, зураг төсөл, угсралт, үйлдвэрлэлийн тооцоолол" },
   ];
 
   return (
     <div className="featured-products w-full px-4 py-12">
       <h2 className="featured-products-title text-2xl font-bold mb-6 text-center">
-        Yagaad bid gej?
+        Яагаад бид гэж?
       </h2>
       <Swiper
         modules={[Scrollbar]}
@@ -31,12 +34,25 @@ const FeaturedProducts = () => {
             spaceBetween: 30,
           },
         }}
-        scrollbar={{ draggable: true , hide: true }}
+        scrollbar={{ draggable: true, hide: false }}
         className="w-full"
       >
         {products.map((product) => (
-          <SwiperSlide key={product.id} className="flex justify-center">
-            <img src={product.image} alt="product"className="w-24 h-24 md:w-36 md:h-36 lg:w-44 lg:h-44" />
+          <SwiperSlide key={product.id} className="flex flex-col items-center p-7">
+            <div className="relative flex justify-center">
+              <img
+                src={product.image2}
+                alt={`Бүтээгдэхүүн ${product.id} фон`}
+                className="absolute w-24 h-24 md:w-36 md:h-36 lg:w-16 lg:h-16"
+              />
+              <img
+                src={product.image}
+                alt={`Бүтээгдэхүүн ${product.id}`}
+                className="relative w-24 h-24 md:w-36 md:h-36 lg:w-16 lg:h-16 bottom-6 left-5"
+              />
+            </div>
+            <h3 className="text-xl font-bold mt-4 text-center">{product.title}</h3>
+            <p className="text-center text-gray-800 mt-4">{product.text}</p>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -48,21 +48,21 @@ const Hero = () => {
       </Swiper>
 
       {/* Overlay Content */}
-      <div className="relative top-32 flex flex-col justify-center items-center h-screen z-10">
-        <p className="md:text-3xl sm:text-2xl text-xl font-semibold py-4">
+      <div className="relative flex flex-col justify-center items-center h-screen z-10">
+        <p className="md:text-3xl relative top-52 sm:text-2xl text-xl font-semibold py-4">
           Манай байгууллага нь
         </p>
         <ReactTyped
-          className="text-teal-600 md:text-3xl sm:text-2xl text-xl font-semibold md:pl-4 pl-2"
+          className="text-teal-600 top-52 relative md:text-3xl sm:text-2xl text-xl font-semibold md:pl-4 pl-2"
           strings={['Чанартай', 'Тогтвортой', 'Инновацлаг']}
           typeSpeed={160}
           backSpeed={140}
           loop
         />
-        <p className="md:text-2xl text-lg font-bold text-white mt-6">
+        <p className="md:text-2xl relative top-52 text-lg font-bold text-white mt-6">
           бүтээгдэхүүнээр та бүхэнд үйлчилнэ.
         </p>
-        <button className="bg-teal-600 text-white px-6 py-2 mx-auto w-[200px] rounded-md mt-10 font-bold hover:bg-white hover:text-teal-600">
+        <button className="bg-teal-600 relative top-52 text-white px-6 py-2 mx-auto w-[200px] rounded-md mt-10 font-bold hover:bg-white hover:text-teal-600">
           Дэлгэрэнгүй
         </button>
       </div>
