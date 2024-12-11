@@ -16,8 +16,26 @@ const FeaturedProducts = () => {
   ];
 
   return (
-    <div className="featured-products w-full px-4 py-12">
-      <h2 className="featured-products-title text-2xl font-bold mb-6 text-center">
+    <div className="featured-products w-full py-12">
+      <div
+                className="w-full flex  h-[4rem]  justify-between items-center"
+                >
+                <button className="hidden md:block text-gray-500 font-medium hover:text-black text-lg hover:bg-gray-200 h-16 flex-grow">
+    Цонх
+</button>
+<button className="hidden md:block text-gray-500 font-medium hover:text-black text-lg hover:bg-gray-200 h-16 flex-grow">
+    Пасад
+</button>
+<button className="hidden md:block text-gray-500 font-medium hover:text-black text-lg hover:bg-gray-200 h-16 flex-grow">
+    Дулаалга
+</button>
+<button className="hidden md:block text-gray-500 font-medium hover:text-black text-lg hover:bg-gray-200 h-16 flex-grow">
+    Гроэ
+</button>
+
+            </div>
+
+      <h2 className="py-14 featured-products-title text-2xl font-bold mb-6 text-center">
         Яагаад бид гэж?
       </h2>
       <Swiper
@@ -26,16 +44,17 @@ const FeaturedProducts = () => {
         slidesPerView={3}
         breakpoints={{
           640: {
+            slidesPerView: 1,
+          },
+          768: {
             slidesPerView: 2,
-            spaceBetween: 20,
           },
           1024: {
             slidesPerView: 3,
-            spaceBetween: 30,
           },
         }}
         scrollbar={{ draggable: true, hide: false }}
-        className="w-full"
+        className="w-full pb-12"
       >
         {products.map((product) => (
           <SwiperSlide key={product.id} className="flex flex-col items-center p-7">

@@ -32,31 +32,32 @@ const Navbar = () => {
         <div className="fixed flex z-50">
             {/* Top Navbar */}
             <div
-                className="top-0 fixed w-full flex  h-[3rem]  justify-between items-center shadow-md"
-                style={{
-                    backgroundImage: "linear-gradient(to right, white 78%, black 22%)",
-                }}
+                className="top-0 fixed bg-white w-full flex  h-[3rem]  justify-between items-center shadow-md"
+               
             >
-                <h1 className="text-black text-lg pl-4 ">Өөрийн дүрээ сонго--</h1>
-                <button className="hidden md:block  hover:bg-teal-600 h-12 w-32">Хувь хүн</button>
-                <button className="hidden md:block  hover:bg-teal-600 h-12  w-32">Инженер</button>
-                <button className="hidden md:block  hover:bg-teal-600 h-12  w-32">Архитектор</button>
-                <button className="hidden md:block  text-white relative right-14 hover:text-teal-600">Төсөл хэрэгжүүлэх</button>
+                <h1 className="text-black text-lg pl-4">Өөрийн дүрээ сонго--</h1>
+                <div className="w-2/3 flex  h-[3rem]  justify-between items-center">
+                <button className="hidden md:block  hover:bg-teal-600 h-12  flex-grow">Хувь хүн</button>
+                <button className="hidden md:block  hover:bg-teal-600 h-12  flex-grow">Инженер</button>
+                <button className="hidden md:block  hover:bg-teal-600 h-12  flex-grow">Архитектор</button>
+                <button className="hidden md:block  bg-black text-white hover:bg-white hover:text-teal-600 h-12  flex-grow">Төсөл хэрэгжүүлэх</button>
                 <button
                     onClick={handleNav}
-                    className="block md:hidden pr-4"
+                    className="block md:hidden pr-4 focus:outline-none"
                     aria-label={nav ? "Цэс хаах" : "Цэс нээх"}
                 >
                     {nav ? (
-                        <IoMdClose size={24} className="text-[#fff] right-10" />
+                        <IoMdClose size={24} className="text-[#000]" />
                     ) : (
-                        <CiMenuBurger size={24} className="text-[#fff] right-10" />
+                        <CiMenuBurger size={24} className="text-[#000] " />
                     )}
                 </button>
+                </div>
+                
             </div>
 
             {/* Middle Section */}
-            <div className="fixed top-12 w-full flex justify-between items-center h-36 max-w-auto bg-custom-gradient">
+            <div className="fixed top-12 w-full flex justify-between items-center h-20 max-w-auto bg-custom-gradient">
                 <img
                     src={exampleImage}
                     alt="Жишээ зураг"

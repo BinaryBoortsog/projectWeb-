@@ -28,7 +28,7 @@ const Hero = () => {
         autoplay={{ delay: 3500, disableOnInteraction: false }}
         pagination={pagination}
         modules={[Pagination, Autoplay]}
-        className="absolute top-10 left-0 w-full h-screen z-0"
+        className="absolute top-12 left-0 w-full h-screen z-0"
       >
         {slides.map((slide, index) => (
           <SwiperSlide
