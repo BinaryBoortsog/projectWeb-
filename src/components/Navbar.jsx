@@ -62,6 +62,7 @@ const Navbar = () => {
                     src={exampleImage}
                     alt="Жишээ зураг"
                     className="relative left-14 w-36 h-36 bottom-5"
+                    href="/home"
                 />
                 <ul className="hidden md:flex bottom-5 gap-x-24 text-lg relative flex-1 justify-items-center left-1/4">
                     <FlyoutLink href="/about" FlyoutContent={AboutFlyout}>

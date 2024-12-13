@@ -11,53 +11,52 @@ import Product from './pages/product';
 import Services from './pages/services';
 import Blog from './pages/blog';
 
+// Layout Component
+const Layout = ({ children }) => (
+  <div>
+    <Navbar />
+    {children}
+    <Footer />
+  </div>
+);
+
 function App() {
   return (
     <div>
-      <Navbar />
       <Routes>
         {/* Home Route */}
         <Route
           path="/"
           element={
-            <>
+            <Layout>
               <Hero />
               <FeaturedProducts />
               <GallerySlider />
               <Certificate />
-              <Footer />
-            </>
+            </Layout>
           }
         />
-        {/* Route */}
+        {/* Other Routes */}
         <Route path="/about" element={
-          <>
-            <About/>
-            <Footer/>
-          </>
-          } 
-          />
-        <Route path="/product" element={
-          <>
-            <Product />
-            <Footer />
-          </>
-        }
-          />
-        <Route path="/services" element={
-          <>
-          <Services />
-          <Footer />
-          </>
-         } />
-        <Route path="/blog" element={
-          <>
-          <Blog />
-          <Footer />
-          </>
+          <Layout>
+            <About />
+          </Layout>
         } />
-
-
+        <Route path="/product" element={
+          <Layout>
+            <Product />
+          </Layout>
+        } />
+        <Route path="/services" element={
+          <Layout>
+            <Services />
+          </Layout>
+        } />
+        <Route path="/blog" element={
+          <Layout>
+            <Blog />
+          </Layout>
+        } />
       </Routes>
     </div>
   );

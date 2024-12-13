@@ -3,45 +3,40 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
 import { Scrollbar } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 
 import image1 from "../assets/image/7.png";
 import image2 from "../assets/image/6.png";
 
 const FeaturedProducts = () => {
   const products = [
-    { id: 1, image: image1, image2: image2, title: "Инженерчлэл",text: "Хэмжилт, зураг төсөл, угсралт, үйлдвэрлэлийн тооцоолол" },
-    { id: 2, image: image1, image2: image2, title: "Инженерчлэл",text: "Хэмжилт, зураг төсөл, угсралт, үйлдвэрлэлийн тооцоолол" },
-    { id: 3, image: image1, image2: image2,title: "Инженерчлэл",text: "Хэмжилт, зураг төсөл, угсралт, үйлдвэрлэлийн тооцоолол" },
-    { id: 4, image: image1, image2: image2, title: "Инженерчлэл",text: "Хэмжилт, зураг төсөл, угсралт, үйлдвэрлэлийн тооцоолол" },
+    { id: 1, image: image1, image2: image2, title: "Инженерчлэл", text: "Хэмжилт, зураг төсөл, угсралт, үйлдвэрлэлийн тооцоолол" },
+    { id: 2, image: image1, image2: image2, title: "Инженерчлэл", text: "Хэмжилт, зураг төсөл, угсралт, үйлдвэрлэлийн тооцоолол" },
+    { id: 3, image: image1, image2: image2, title: "Инженерчлэл", text: "Хэмжилт, зураг төсөл, угсралт, үйлдвэрлэлийн тооцоолол" },
+    { id: 4, image: image1, image2: image2, title: "Инженерчлэл", text: "Хэмжилт, зураг төсөл, угсралт, үйлдвэрлэлийн тооцоолол" },
   ];
 
   return (
     <div className="featured-products w-full py-12">
-      <div
-                className="w-full flex  h-[4rem]  justify-between items-center"
-                >
-                <button className="hidden md:block text-gray-500 font-medium hover:text-black text-lg hover:bg-gray-200 h-16 flex-grow">
-    Цонх
-</button>
-<button className="hidden md:block text-gray-500 font-medium hover:text-black text-lg hover:bg-gray-200 h-16 flex-grow">
-    Пасад
-</button>
-<button className="hidden md:block text-gray-500 font-medium hover:text-black text-lg hover:bg-gray-200 h-16 flex-grow">
-    Дулаалга
-</button>
-<button className="hidden md:block text-gray-500 font-medium hover:text-black text-lg hover:bg-gray-200 h-16 flex-grow">
-    Гроэ
-</button>
+      <div className="w-full flex h-[4rem] justify-between items-center">
+        <button className="hidden md:block text-gray-500 font-medium hover:text-black text-lg hover:bg-gray-200 h-16 flex-grow">Цонх</button>
+        <button className="hidden md:block text-gray-500 font-medium hover:text-black text-lg hover:bg-gray-200 h-16 flex-grow">Пасад</button>
+        <button className="hidden md:block text-gray-500 font-medium hover:text-black text-lg hover:bg-gray-200 h-16 flex-grow">Дулаалга</button>
+        <button className="hidden md:block text-gray-500 font-medium hover:text-black text-lg hover:bg-gray-200 h-16 flex-grow">Гроэ</button>
+      </div>
 
-            </div>
-
-      <h2 className="py-14 featured-products-title text-2xl font-bold mb-6 text-center">
-        Яагаад бид гэж?
-      </h2>
+      <h2 className="py-14 text-2xl font-bold mb-6 text-center">Яагаад бид гэж?</h2>
+      
       <Swiper
-        modules={[Scrollbar]}
+        slidesPerView={1}
         spaceBetween={20}
-        slidesPerView={3}
+        pagination={{
+          clickable: true,
+        }}
+        scrollbar={{
+          draggable: true,
+          hide: false,
+        }}
         breakpoints={{
           640: {
             slidesPerView: 1,
@@ -53,7 +48,7 @@ const FeaturedProducts = () => {
             slidesPerView: 3,
           },
         }}
-        scrollbar={{ draggable: true, hide: false }}
+        modules={[Scrollbar, Pagination]}
         className="w-full pb-12"
       >
         {products.map((product) => (

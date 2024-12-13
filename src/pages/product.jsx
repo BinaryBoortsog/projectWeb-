@@ -2,7 +2,7 @@ import React from 'react';
 
 const Product = () => {
   return (
-    <div className="bg-gray-900 text-white p-8">
+    <div className="bg-gray-900 text-black p-8">
       <h1 className="text-4xl font-bold mb-6">Our Product</h1>
       <p className="mt-4 text-lg">
         Welcome to our product page! Here you can learn more about the amazing product we offer, designed to meet your needs and exceed expectations.
