@@ -106,7 +106,7 @@ const Certificate = () => {
           </div>
       </div>
 
-      <h2 className="py-14 text-2xl font-bold mb-6 text-center">Бүрэн автомат үйлдвэрлэл</h2>
+      <h2 className="py-14 text-2xl font-bold mb-6 text-center uppercase"><span className="text-teal-600">Бүрэн автомат </span>үйлдвэрлэл</h2>
       <Swiper
         slidesPerView={1}
         spaceBetween={20}

@@ -68,7 +68,7 @@ const Navbar = () => {
                     <FlyoutLink href="/about" FlyoutContent={AboutFlyout}>
                         Хамтран ажиллах
                     </FlyoutLink>
-                    <FlyoutLink href="/products" FlyoutContent={productContent}>
+                    <FlyoutLink href="/product" FlyoutContent={productContent}>
                         Бүтээгдэхүүн
                     </FlyoutLink>
                     <FlyoutLink href="/services" FlyoutContent={serviceContent}>
