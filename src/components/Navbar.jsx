@@ -193,9 +193,6 @@ const AboutFlyout = () => (
                 <Link to="/about">Бидний тухай</Link>
             </li>
             <li>
-                <Link to="/team">Баг</Link>
-            </li>
-            <li>
                 <Link to="/contact">Холбоо барих</Link>
             </li>
         </ul>
