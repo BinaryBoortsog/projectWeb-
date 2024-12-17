@@ -7,12 +7,14 @@ import { Pagination } from "swiper/modules";
 
 import image1 from "../assets/image/7.png";
 import image2 from "../assets/image/6.png";
+import image3 from "../assets/image/icon2.png"
+import image4 from "../assets/image/icon3.png"
 
 const FeaturedProducts = () => {
   const products = [
     { id: 1, image: image1, image2: image2, title: "Инженерчлэл", text: "Хэмжилт, зураг төсөл, угсралт, үйлдвэрлэлийн тооцоолол" },
-    { id: 2, image: image1, image2: image2, title: "Инженерчлэл", text: "Хэмжилт, зураг төсөл, угсралт, үйлдвэрлэлийн тооцоолол" },
-    { id: 3, image: image1, image2: image2, title: "Инженерчлэл", text: "Хэмжилт, зураг төсөл, угсралт, үйлдвэрлэлийн тооцоолол" },
+    { id: 2, image: image1, image2: image3, title: "Ажиллах хүчин", text: "10 жилийн туршлагатай, тогтвортой, мэргэжлийн хамт олон" },
+    { id: 3, image: image1, image2: image4, title: "Баталгаа", text: "Баталгаат хугацаанд хүрээн дэх засвар үйлчилгээний дуудлагын төв" },
     { id: 4, image: image1, image2: image2, title: "Инженерчлэл", text: "Хэмжилт, зураг төсөл, угсралт, үйлдвэрлэлийн тооцоолол" },
   ];
 
