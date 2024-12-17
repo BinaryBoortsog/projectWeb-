@@ -1,14 +1,21 @@
 import React from 'react';
+import backgroundImage from '../assets/image/3.png'; // Import the image properly
 
 const About = () => {
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-white min-h-screen">
       {/* Header Section */}
-      <header className="bg-blue-600 text-white py-8">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl font-bold">Бидний тухай</h1>
-          <p className="text-lg mt-2">Бид хэн бэ?</p>
+      <header
+        className="relative bg-cover bg-center bg-no-repeat text-white"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+        }}
+      >
+        <div className="absolute inset-0 flex flex-col justify-center items-center">
+          <h1 className="text-4xl md:text-5xl font-bold">Бидний тухай</h1>
         </div>
+        {/* Set height dynamically for different screen sizes */}
+        <div className="h-[300px] md:h-[500px] lg:h-[660px] w-full"></div>
       </header>
 
       {/* Main Content Section */}

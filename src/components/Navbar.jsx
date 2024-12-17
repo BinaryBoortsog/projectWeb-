@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { AnimatePresence } from "framer-motion";
 import exampleImage from "../assets/image/image.png";
 
 const Navbar = () => {
@@ -35,7 +34,7 @@ const Navbar = () => {
                 className="top-0 fixed bg-white w-full flex  h-[3rem]  justify-between items-center shadow-md"
                
             >
-                <h1 className="text-black text-lg pl-4">Өөрийн дүрээ сонго--</h1>
+                <h1 className="text-black text-lg pl-4">Дүрээ сонгоно уу</h1>
                 <div className="w-2/3 flex  h-[3rem]  justify-between items-center">
                 <button className="hidden md:block  hover:bg-teal-600 h-12  flex-grow">Хувь хүн</button>
                 <button className="hidden md:block  hover:bg-teal-600 h-12  flex-grow">Инженер</button>
@@ -180,7 +179,7 @@ const serviceContent = () => (
                 <Link to="/team">Баг</Link>
             </li>
             <li>
-                <Link to="/contact">Холбоо барих</Link>
+                <Link to="pages/contacts">Холбоо барих</Link>
             </li>
         </ul>
     </div>
@@ -196,7 +195,7 @@ const AboutFlyout = () => (
                 <Link to="/team">Баг</Link>
             </li>
             <li>
-                <Link to="/contact">Холбоо барих</Link>
+                <Link to="/pages/contacts">Холбоо барих</Link>
             </li>
         </ul>
     </div>

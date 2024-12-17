@@ -1,15 +1,15 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import FeaturedProducts from './components/FeaturedProducts';
+import { Route, Routes } from 'react-router-dom';
 import Certificate from './components/Certificate';
-import GallerySlider from './components/testiMonials';
+import FeaturedProducts from './components/FeaturedProducts';
 import Footer from './components/Footer';
-import About from './pages/about'; 
+import Hero from './components/Hero';
+import Navbar from './components/Navbar';
+import GallerySlider from './components/testiMonials';
+import About from './pages/about';
+import Blog from './pages/blog';
 import Product from './pages/product';
 import Services from './pages/services';
-import Blog from './pages/blog';
 
 // Layout Component
 const Layout = ({ children }) => (
@@ -38,6 +38,11 @@ function App() {
         />
         {/* Other Routes */}
         <Route path="/about" element={
+          <Layout>
+            <About />
+          </Layout>
+        } />
+        <Route path="contacts" element={
           <Layout>
             <About />
           </Layout>
